@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Name:    PyHouse-ansible/bin/ansible-production
+# Author:  D. Brian Kimmel
+# Created: 2017-11-05
+# Updated: 2017-11-19
+#
+# Deploys ansible commands on the local ansible workstation.
+
+BINDIR=/usr/local/bin
+INVENTORY=" -i inventories/local/hosts"
+PLAYBOOK=" playbooks/local-install-tools.yaml"
+PSWD1=" --vault-password-file ~/.vault-pass.txt"
+TAGS=""
+
+# Put all script tools where they can just be called
+sudo cp ~/workspace/PyHouse-ansible/bin/ansible*  ${BINDIR}/
+sudo cp ~/workspace/PyHouse-ansible/bin/ansible*  ~/bin
+sudo chmod a+x ${BINDIR}/*
+sudo chmod a+x ~/bin
+
+if [ $# -gt 0 ]; then
+    TAGS+=" --tags=setup_ansible,$1 "
+    echo "Tags = ${TAGS}"
+else
+	TAGS+=" --tags=setup_ansible "
+    echo "No Tags - only setup_ansible "
+fi
+
+cd ~/workspace/PyHouse-ansible
+ansible-playbook ${INVENTORY} ${PLAYBOOK} ${PSWD1}  ${TAGS}
+cd -
+
+### END DBK

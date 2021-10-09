@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Name:    PyHouse-ansible/bin/ansible-production
+# Author:  D. Brian Kimmel
+# Created: 2017-11-05
+# Updated: 2019-08-06
+#
+# 2019-08-06 Now using Buster-Light
+#
+# Deploys the full production setup.
+#
+# Valid extra tags on the commandline:
+#		all
+#		backup
+
+INVENTORY=" -i inventories/production/hosts "
+PLAYBOOK="  playbook-production.yaml "
+PSWD1="     --vault-password-file  ~/.vault-pass.txt "
+TAGS=""
+
+if [ $# -gt 0 ]; then
+    TAGS+=" --tags=setup_production,$1 "
+    echo "Tags = ${TAGS} "
+else
+    TAGS+=" --tags=tag_production "
+    echo "No Tags - only setup_production "
+fi
+
+cd ~/workspace/PyHouse-ansible
+echo "ansible-playbook ${INVENTORY} ${PLAYBOOK} ${TAGS} ${PSWD1}"
+ansible-playbook  -vv  ${INVENTORY} ${PLAYBOOK} ${PSWD1}  ${TAGS}
+cd -
+
+### END DBK
