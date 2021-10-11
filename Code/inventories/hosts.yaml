@@ -1,0 +1,51 @@
+# Ansible/Code/inventories/hosts.yaml
+---
+all:
+    hosts:
+        laptop.zbook:
+        bootstrap_pi:
+    children:
+        pinkpoppy:
+            hosts:
+                pi-01-pp:
+                pi-02-pp:
+                pi-03-pp:
+                pi-04-pp:
+                pi-05-pp:
+                pi-06-pp:
+                pi-07-pp:
+                pi-08-pp:
+                pi-09-pp:
+                pi-10-pp:
+                pi-11-pp:
+                pi-12-pp:
+            vars:
+                gateway_router: 172.16.0.5
+        floating:
+            hosts:
+                laptop_zbook:
+                laptop_marcia:
+        pis:
+            hosts:
+                pi-01-pp:
+                pi-02-pp:
+                pi-03-pp:
+                pi-04-pp:
+                pi-05-pp:
+                pi-06-pp:
+                pi-07-pp:
+                pi-08-pp:
+                pi-09-pp:
+                pi-10-pp:
+                pi-11-pp:
+                pi-12-pp:
+        others:
+            hosts:
+                alki-pp:
+                router-01-pp:
+    vars:
+        domain-name: pyhouse.org
+        global123: 123
+        vpn_zt-network: vault_vpn_network_key
+
+### END DBK
