@@ -15,3 +15,11 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Mine
+
+* [Ansible installation](install.md)
+* [New ansible role](new-role.md)
+* [Requirements](requirements.md)
+
+### END DBK

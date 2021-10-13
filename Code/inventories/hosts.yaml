@@ -8,7 +8,7 @@ all:
         pinkpoppy:
             hosts:
                 pi-01-pp:
-                pi-02-pp:
+                #pi-02-pp:
                 pi-03-pp:
                 pi-04-pp:
                 pi-05-pp:
@@ -18,16 +18,25 @@ all:
                 pi-09-pp:
                 pi-10-pp:
                 pi-11-pp:
-                pi-12-pp:
+                pi-13-pp:
+                #pi-14-pp:
+                pi-19-pp:
             vars:
                 gateway_router: 172.16.0.5
         floating:
             hosts:
                 laptop_zbook:
                 laptop_marcia:
+        cluster_01:
+            hosts:
+                pi-12-pp:
+                pi-15-pp:
+                pi-16-pp:
+                pi-17-pp:
+                pi-18-pp:
         pis:
             hosts:
-                pi-01-pp:
+                pi-[01:19]-pp:
                 pi-02-pp:
                 pi-03-pp:
                 pi-04-pp:
@@ -47,5 +56,6 @@ all:
         domain-name: pyhouse.org
         global123: 123
         vpn_zt-network: vault_vpn_network_key
+    become: yes
 
 ### END DBK

@@ -1,0 +1,20 @@
+# Name:   roles/a_begin/defaults/main.yaml
+# Updated: 2021-10-11
+---
+# To allow this role to be turned off.
+a_begin_role_enabled: true
+
+a_begin_roles_to_run:
+   - update_system  # Be sure 'apt' is up to date
+   - setup_avahi
+   - setup_hostname
+   - setup_security
+   - setup_ssh
+   - setup_time_services
+   - setup_usb_boot
+   - install_vnc
+
+# packages used on all computers - by distribution, release type.
+a_begin_basic_package_list: []
+
+### END DBK

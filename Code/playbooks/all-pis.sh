@@ -1,44 +1,21 @@
 #!/bin/bash
 
-MY_NAME="all-pis"
+echo Running all-pis.sh now.
 
-NFS_DIR="/NFS/Vcs/Workbenches/"
+MY_NAME="all-pis"
+CUR_DIR=`pwd`
+
 INVENTORY="-i ./inventories/hosts.yaml "
-PLAYBOOK="playbooks/${MY_NAME}/${MY_NAME}.yaml"
-DEBUG=" "
+PLAYBOOK="./playbooks/${MY_NAME}.yaml"
+DEBUG=" -vvvv "
 #DEBUG=" -vvv "
 
-CUR_DIR=`pwd`
-#WORK_DIR=${HOME}
-WORK_DIR=${NFS_DIR}
-
-# Add 'Shared' if it is in the path (New scheme)
-if [ -d ${WORK_DIR}/Shared ] ; then
-	WORK_DIR=${WORK_DIR}/Shared
-fi
-
-# Add the workspace (new or old scheme)
-if [ -d ${WORK_DIR}/Workspace ] ; then
-	WORK_DIR=${WORK_DIR}/Workspace
-fi
-if [ -d ${WORK_DIR}/workspace ] ; then
-	WORK_DIR=${WORK_DIR}/workspace
-fi
-
-# The repository 
-ANS_DIR=${WORK_DIR}/PyHouse-ansible
-PLAY_DIR=${ANS_DIR}/playbooks/${MY_NAME}
-
-# Update the sh file for next time. 
-cp ${PLAY_DIR}/${MY_NAME}.sh  ${HOME}/bin
-
-# go  to th base of the repository where ansible.cfg is located
-cd ${ANS_DIR}
+BASE_DIR="/var/local/Ansible/"
+cd ${BASE_DIR}
 
 # Debugging, verfy the above work.
-echo "Start Dir: ${CUR_DIR}"
-echo " Play Dir: ${ANS_DIR}"
-echo " Work Dir: ${WORK_DIR}"
+echo " Base Dir: ${BASE_DIR}"
+echo "  Cur Dir: ${CUR_DIR}"
 
 PASSWD="--vault-password-file  ${HOME}/.vault-pass.txt "
 CMD="ansible-playbook ${INVENTORY} ${PASSWD} ${DEBUG} ${PLAYBOOK}"

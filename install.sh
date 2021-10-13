@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Intall the local files on the ansible host computer.
+# Install the local files on the ansible host computer.
 
 if [ ${EUID} -ne 0 ] ; then
     echo "You must be root! ${EUID}"
