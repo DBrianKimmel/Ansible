@@ -1,0 +1,7 @@
+# Name:   roles/b_base_setup/defaults/main.yaml
+# Updated: 2021-10-14
+---
+# To allow this role to be turned off.
+a_base_setup_role_enabled: yes
+
+### END DBK

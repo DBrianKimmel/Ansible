@@ -1,12 +1,12 @@
 # Name:   roles/a_begin/tasks/main.yaml
-# Updated: 2021-10-11
+# Updated: 2021-10-14
 #
 # This task sets up each type of computer to have the basic components
-#
+
 ---
 
 # Allow this role to be skipped.
-- include_tasks: a_begin.yaml
-  when: a_begin_role_enabled | bool
+- include_tasks: begin.yaml
+  when: begin_role_enabled | bool
 
 ### END DBK

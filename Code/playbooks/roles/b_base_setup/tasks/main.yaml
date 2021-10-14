@@ -1,0 +1,10 @@
+# Name:   roles/b_base_setup/tasks/main.yaml
+# Updated: 2021-10-14
+
+---
+
+# Allow this role to be skipped.
+- include_tasks: base_setup.yaml
+  when: a_base_setup_role_enabled | bool
+
+### END DBK

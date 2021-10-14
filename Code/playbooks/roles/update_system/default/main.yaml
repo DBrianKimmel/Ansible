@@ -1,0 +1,9 @@
+# Name:   roles/update_system/defaults/main.yaml
+# Updated: 2021-10-14
+
+---
+
+# To allow this role to be turned off.
+update_system_role_enabled: true
+
+### END DBK

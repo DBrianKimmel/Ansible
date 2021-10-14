@@ -7,7 +7,7 @@ CUR_DIR=`pwd`
 
 INVENTORY="-i ./inventories/hosts.yaml "
 PLAYBOOK="./playbooks/${MY_NAME}.yaml"
-DEBUG=" -vvvv "
+DEBUG=" "
 #DEBUG=" -vvv "
 
 BASE_DIR="/var/local/Ansible/"
@@ -21,6 +21,7 @@ PASSWD="--vault-password-file  ${HOME}/.vault-pass.txt "
 CMD="ansible-playbook ${INVENTORY} ${PASSWD} ${DEBUG} ${PLAYBOOK}"
 echo "Executing:  $CMD"
 echo ' '
+# export ANSIBLE_DEBUG=1
 $CMD
 
 cd ${CUR_DIR}

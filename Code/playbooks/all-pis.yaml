@@ -8,7 +8,7 @@
 
 ---
 - name: Play-01 - All-Pis - Starting play;;;
-  hosts: pinkpoppy
+  hosts: pis
   connection: ssh
   remote_user: root
   become: true

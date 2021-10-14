@@ -2,7 +2,6 @@
 
 Vince Sesto
 
-
 Ok, I know it’s been an eternity since we’ve posted last.
 But we’re still here and working hard.
 We’ve had a few projects on the go over the past few months including an update and republish of our book “Practical Ansible: Configuration Management from Start to Finish”.
