@@ -1,5 +1,5 @@
-# Name    roles/update_system/tasks/update.yaml
-# Updated: 2021-10-14
+# Name    roles/b_update_system/tasks/update.yaml
+# Updated: 2021-10-16
 
 # Update the system
 
@@ -13,9 +13,26 @@
       "2              : {{ ansible_facts.distribution }}.yaml"
       "3     OS Family: {{ ansible_facts.os_family }}_{{ ansible_facts.distribution_major_version }}.yaml"
       "4              : {{ ansible_facts.os_family }}.yaml"
+      "5 Dist  {{ansible_distribution}}"
+      "6 OsFam  {{ansible_os_family}}"
 
-- name: Task-02(Update) - set OS dependent variables.
-  include_vars: '{{ item }}'
+
+# Load a variable file based on the OS type, or a default if not found. Using free-form to specify the file.
+- name: Task-02(Updte) find files.
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yaml'
+        - '{{ansible_os_family}}.yaml'
+        - default.yaml
+      paths:
+        - 'vars'
+
+
+- name: Task-03(Update) - set OS dependent variables.
+  ansible.builtin.include_vars: '{{ item }}'
+  ignore_errors: yes
   with_first_found:
     - '{{ ansible_facts.distribution }}_{{ ansible_facts.distribution_major_version }}.yaml'
     - '{{ ansible_facts.distribution }}.yaml'
@@ -23,7 +40,7 @@
     - '{{ ansible_facts.os_family }}.yaml'
 
 # Ignore errors if internet is down
-- name: Task-03(Update) - Update and upgrade apt packages.
+- name: Task-04(Update) - Update and upgrade apt packages.
   ignore_errors: true # Ignore errors if internet is down
   apt:
     upgrade: 'yes'
@@ -31,7 +48,7 @@
     cache_valid_time: 3600
 
 ## sudo apt install python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential
-- name: Task-04(Update) - Install needed apt packages.
+- name: Task-05(Update) - Install needed apt packages.
   ignore_errors: true # Ignore errors if internet is down
   apt:
      name: "{{ begin_basic_package_list }}"

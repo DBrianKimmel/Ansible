@@ -1,0 +1,8 @@
+# roles/b_update_system/vars/Debian.yaml
+# Updated: 2021-10-16
+
+---
+
+update_package_manager: apt
+
+### END DBK

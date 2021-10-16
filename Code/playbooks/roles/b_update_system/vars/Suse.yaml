@@ -1,0 +1,8 @@
+# roles/b_update_system/vars/Suse.yaml
+# Updated: 2021-10-16
+
+---
+
+update_package_manager: zypper
+
+### END DBK
