@@ -2,6 +2,7 @@
 # Updated: 2021-10-11
 #
 # See roles/a_begin/defaults/main.yaml for the begin_roles_to_run list.
+
 ---
 
 - name: Task-01(Begin) - Info about each computer in this play...

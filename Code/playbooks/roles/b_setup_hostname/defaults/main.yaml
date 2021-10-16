@@ -1,0 +1,14 @@
+# Name:    roles/setup_hostname/defaults/main.yaml
+# Author:  D. Brian Kimmel
+# Updated: 2021-10-14
+#
+# Set up the computer's hostname
+
+---
+
+setup_hostname_role_enabled: true
+
+hostname_hostname: fake_hostname
+hostname_domain: fake_domain
+
+### END DBK

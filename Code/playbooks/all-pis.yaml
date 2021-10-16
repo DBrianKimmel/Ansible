@@ -1,5 +1,5 @@
 # Name:    playbooks/all-pis.yaml
-# Updated: 2021-08-01
+# Updated: 2021-10-01
 
 # This playbook will first install the basic system that goes on every computer.
 # Then it will add the pyh_roles to specialize that computer.
@@ -7,15 +7,16 @@
 # Select a host from individual or one of the groups (pis, cannontrail, pinkpoppy)
 
 ---
+
 - name: Play-01 - All-Pis - Starting play;;;
-  hosts: pis
+  hosts: pinkpoppy
   connection: ssh
   remote_user: root
   become: true
 
   roles:
         - a_begin
-        #- dispatch_function_install
+        # - dispatch_function_install
         - z_finalize
 
 #- name: Play-02 - Another play if we need it.

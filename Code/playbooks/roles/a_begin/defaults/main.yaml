@@ -1,14 +1,16 @@
 # Name:   roles/a_begin/defaults/main.yaml
 # Updated: 2021-10-11
+
 ---
+
 # To allow this role to be turned off.
 begin_role_enabled: true
 
 # These roles are run to set up the components on every computer
 begin_roles_to_run:
    - update_system  # Be sure 'apt' is up to date
-   #- setup_avahi
-   #- setup_hostname
+   # - setup_avahi
+   - setup_hostname
    #- setup_security
    #- setup_ssh
    #- setup_time_services

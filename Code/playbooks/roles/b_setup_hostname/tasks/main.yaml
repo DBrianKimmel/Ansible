@@ -1,0 +1,10 @@
+# Name:   roles/setup_hostname/tasks/main.yaml
+# Updated: 2021-10-14
+
+---
+
+# Allow this role to be skipped.
+- include_tasks: hostname.yaml
+  when: setup_hostname_role_enabled | bool
+
+### END DBK
