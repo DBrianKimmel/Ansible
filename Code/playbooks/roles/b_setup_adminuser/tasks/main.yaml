@@ -1,0 +1,13 @@
+# Name:   roles/b_setup_adminuser/tasks/main.yaml
+# Updated: 2021-10-18
+#
+# This task sets up the main admin user (briank)
+
+---
+
+# Allow this role to be skipped.
+- name: Task-00(b_setup_adminuser) Continue if enabled.
+  include_tasks: add_user.yaml
+  when: setup_adminuser_role_enabled | bool
+
+### END DBK

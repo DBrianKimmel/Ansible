@@ -1,12 +1,12 @@
 # Name    roles/b_update_system/tasks/update.yaml
-# Updated: 2021-10-16
+# Updated: 2021-10-18
 
 # Update the system
 
 ---
 
 - name: Task-01(Update) - Info
-  debug:
+  ansible.builtin.debug:
     msg: |
       " Role: Update System"
       "1  Distribution: {{ ansible_facts.distribution }}_{{ ansible_facts.distribution_major_version }}.yaml"
@@ -18,8 +18,8 @@
 
 
 # Load a variable file based on the OS type, or a default if not found. Using free-form to specify the file.
-- name: Task-02(Updte) find files.
-  include_vars: "{{ lookup('first_found', params) }}"
+- name: Task-02(Update) find files.
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -42,16 +42,16 @@
 # Ignore errors if internet is down
 - name: Task-04(Update) - Update and upgrade apt packages.
   ignore_errors: true # Ignore errors if internet is down
-  apt:
-    upgrade: 'yes'
-    update_cache: 'yes'
-    cache_valid_time: 3600
+  ansible.builtin.package:
+      upgrade: 'yes'
+      update_cache: 'yes'
+      cache_valid_time: 3600
 
 ## sudo apt install python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential
 - name: Task-05(Update) - Install needed apt packages.
   ignore_errors: true # Ignore errors if internet is down
-  apt:
-     name: "{{ begin_basic_package_list }}"
-     state: present
+  ansible.builtin.package:
+      name: "{{ begin_basic_package_list }}"
+      state: present
 
 ### END DBK

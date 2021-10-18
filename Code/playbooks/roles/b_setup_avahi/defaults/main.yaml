@@ -1,0 +1,8 @@
+# Name:   roles/b_setup_avahi/defaults/main.yaml
+# Updated: 2021-10-18
+
+---
+
+setup_avahi_role_enabled: yes
+
+### END DBK

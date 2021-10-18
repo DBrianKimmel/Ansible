@@ -6,8 +6,8 @@ if [ ${EUID} -eq 0 ] ; then
     echo "You must NOT be root! ${EUID}"
     exit
 fi
-
-echo running shell run-network-ansible.sh
+echo "Running shell run-network-ansible.sh"
+echo
 
 VARL_DIR=/var/local
 ULB_DIR=/usr/local/bin

@@ -26,4 +26,8 @@ fi
 cp -ar ${SRC_DIR}/Code/* ${WORK_DIR}/
 chown -R briank ${WORK_DIR}
 
+echo "Copied ${SRC_DIR} files to ${ULB_DIR} "
+echo "Copied ${SRC_DIR}/Code/ files to ${WORK_DIR}/"
+echo
+
 ### END DBK

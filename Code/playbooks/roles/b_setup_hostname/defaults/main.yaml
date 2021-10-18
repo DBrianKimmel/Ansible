@@ -8,7 +8,4 @@
 
 setup_hostname_role_enabled: true
 
-hostname_hostname: fake_hostname
-hostname_domain: fake_domain
-
 ### END DBK

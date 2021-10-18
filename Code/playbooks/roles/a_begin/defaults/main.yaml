@@ -1,5 +1,5 @@
 # Name:   roles/a_begin/defaults/main.yaml
-# Updated: 2021-10-11
+# Updated: 2021-10-17
 
 ---
 
@@ -8,14 +8,16 @@ begin_role_enabled: true
 
 # These roles are run to set up the components on every computer
 begin_roles_to_run:
-   - update_system  # Be sure 'apt' is up to date
-   # - setup_avahi
-   - setup_hostname
-   #- setup_security
-   #- setup_ssh
-   #- setup_time_services
-   #- setup_usb_boot
-   #- install_vnc
+   - b_update_system  # Be sure 'apt' is up to date
+   - b_setup_adminuser
+   - b_setup_hostname
+   - b_setup_avahi
+   # - setup_security
+   # - setup_ssh
+   # - setup_time_services
+   # - setup_usb_boot
+   # - setup_root_filesystem
+   # - install_vnc
 
 # packages used on all computers - by distribution, release type.
 begin_basic_package_list: []

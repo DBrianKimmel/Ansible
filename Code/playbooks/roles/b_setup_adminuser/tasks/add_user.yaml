@@ -1,0 +1,17 @@
+# Name:   roles/b_setup_adminuser/tasks/add_user.yaml
+# Updated: 2021-10-18
+#
+# This task sets up the main admin user (briank)
+
+---
+
+
+- name: Task-01(AddUser)
+  ansible.builtin.debug:
+    msg: |
+        '         Role: a_begin/tasks/begin.yaml'
+        '   Admin_User: {{ admin_user_name | default("Missing Admin_user_name") }} '
+        '         Host: {{ ansible_facts.hostname | default("Missing Host Name") }}'
+        ' Distribution: {{ ansible_facts.distribution }} : {{ ansible_facts.distribution_major_version }}'
+
+### END DBK

@@ -1,12 +1,13 @@
 # Name:   roles/a_begin/tasks/main.yaml
-# Updated: 2021-10-14
-#
+# Updated: 2021-10-18
+
 # This task sets up each type of computer to have the basic components
 
 ---
 
 # Allow this role to be skipped.
-- include_tasks: begin.yaml
+- name: Task-00(a_begin) Continue if enabled.
+  ansible.builtin.include_tasks: begin.yaml
   when: begin_role_enabled | bool
 
 ### END DBK

@@ -4,7 +4,8 @@
 ---
 
 # Allow this role to be skipped.
-- include_tasks: hostname.yaml
+- name: Task-00(b_setup_hostname) Continue if enabled.
+  include_tasks: hostname.yaml
   when: setup_hostname_role_enabled | bool
 
 ### END DBK

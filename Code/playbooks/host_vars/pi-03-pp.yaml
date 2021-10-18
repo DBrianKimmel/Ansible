@@ -1,0 +1,14 @@
+# Name: playbooks/host_vars/pi-03-pp.yaml
+# Updated: 2021-10-17
+
+---
+
+hostname: pi-03-pp
+ip: 172.16.2.3
+
+ansible_host: 172.16.2.3
+basic_hostname: pi-03-pp
+wireguard_address: "10.12.14.103/24"
+
+
+### END DBK
