@@ -11,7 +11,7 @@ begin_roles_to_run:
    - b_update_system  # Be sure 'apt' is up to date
    - b_setup_adminuser
    - b_setup_hostname
-   - b_setup_avahi
+   #- b_setup_avahi
    # - setup_security
    # - setup_ssh
    # - setup_time_services

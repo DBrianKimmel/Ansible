@@ -40,7 +40,7 @@
     - '{{ ansible_facts.os_family }}.yaml'
 
 # Ignore errors if internet is down
-- name: Task-04(Update) - Update and upgrade apt packages.
+- name: Task-04(Update) - Update and upgrade packages.
   ignore_errors: true # Ignore errors if internet is down
   ansible.builtin.package:
       upgrade: 'yes'
