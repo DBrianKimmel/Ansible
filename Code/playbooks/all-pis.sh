@@ -5,7 +5,7 @@ echo "Running all-pis.sh now."
 MY_NAME="all-pis"
 CUR_DIR=`pwd`
 
-INVENTORY="-i ./inventories/hosts.yaml "
+INVENTORY="-i /srv/inventories/hosts.yaml "
 PLAYBOOK="./playbooks/${MY_NAME}.yaml"
 DEBUG=" "
 #DEBUG=" -vvv "

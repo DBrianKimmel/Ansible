@@ -4,7 +4,7 @@
 ---
 
 - name: Task99 - All done
-  debug:
+  ansible.builtin.debug:
     msg: All done
 
 ### END DBK

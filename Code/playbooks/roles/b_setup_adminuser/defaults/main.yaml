@@ -10,5 +10,4 @@ admin_user_password: $6$tiuFB7p31L$G2Z/NoFyTEz18HwOsbaTPh4fM5rSq1nratdP8YhFjyR7U
 admin_user_full_name: 'John Q. Public'
 admin_user_groups: [adm,dialout,sudo,audio,video]
 
-
 ### END DBK

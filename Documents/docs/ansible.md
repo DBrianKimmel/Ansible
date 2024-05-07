@@ -1,6 +1,6 @@
 # Create Your Own Docker Image Running Ansible
 
-Vince Sesto
+Author:  Vince Sesto
 
 Ok, I know it’s been an eternity since we’ve posted last.
 But we’re still here and working hard.
@@ -34,19 +34,19 @@ I have created an image which is available on Docker Hub at the following
 03 ENV TZ=Pacific/Auckland
 04 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 05
-06 RUN apt-get update 
-07 RUN apt-get install -y curl vim python3 python3-pip git libffi-dev libssl-dev supervisor openssh-server 
+06 RUN apt-get update
+07 RUN apt-get install -y curl vim python3 python3-pip git libffi-dev libssl-dev supervisor openssh-server
 08 RUN apt-get install -y ansible
 09
 10 COPY id_rsa.pub /root/.ssh/id_rsa.pub
-11 COPY id_rsa /root/.ssh/id_rsa 
-12 RUN cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys 
-13 RUN chmod 600 -R /root/.ssh/ 
+11 COPY id_rsa /root/.ssh/id_rsa
+12 RUN cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys
+13 RUN chmod 600 -R /root/.ssh/
 14
 15 RUN service ssh start
 16
-17 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
-18 EXPOSE 22 
+17 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+18 EXPOSE 22
 19 CMD ["/usr/bin/supervisord"]
 ```
 
