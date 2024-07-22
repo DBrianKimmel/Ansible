@@ -16,7 +16,7 @@
 
 - name: Task-02-Suse(AddUser) - Add Admin User
   ignore_errors:    yes
-  user:
+  ansible.builtin.user:
     name:           "{{ master_username }}"
     password:       "{{ admin_user_password }}"
     comment:        "{{ admin_user_full_name }}"
@@ -26,7 +26,7 @@
 
 - name: Task-02-Raspbian(AddUser) - Add Admin User
   ignore_errors:    yes
-  user:
+  ansible.builtin.user:
     name:           "{{ master_username }}"
     password:       "{{ admin_user_password }}"
     comment:        "{{ admin_user_full_name }}"
@@ -36,7 +36,7 @@
 
 - name: Task-02-Ubuntu(AddUser) - Add Admin User
   ignore_errors:    yes
-  user:
+  ansible.builtin.user:
     name:           "{{ master_username }}"
     password:       "{{ admin_user_password }}"
     comment:        "{{ admin_user_full_name }}"
@@ -47,7 +47,7 @@
 
 - name: Task-03(AddUser) - Create the sudoers.d file for admin user
   ignore_errors:    yes
-  template:
+  ansible.builtin.template:
     src:            ./sudoers.j2
     dest:           "/etc/sudoers.d/{{ master_username }}"
     owner:          root
@@ -74,7 +74,7 @@
 
 - name: Task-06(AddUser) - Copy admin files to ~/bin
   ignore_errors:    yes
-  copy:
+  ansible.builtin.copy:
     src:            "files/ModelDiscovery.sh"
     dest:           "/usr/local/bin"
     owner:          "{{ master_username }}"
@@ -91,7 +91,7 @@
     mode:           0700
 
 - name: Task-08(AddUser) - Copy authorized_keys file to ~/.ssh
-  copy:
+  ansible.builtin.copy:
     src:            "~/.ssh/authorized_keys"
     dest:           "/home/{{ master_username }}/.ssh"
     owner:          "{{ master_username }}"
@@ -99,7 +99,7 @@
     mode:           0600
 
 - name: Task-09(AddUser) - Copy id_rsa file to ~/.ssh
-  copy:
+  ansible.builtin.copy:
     src:            "~/.ssh/id_rsa"
     dest:           "/home/{{ master_username }}/.ssh"
     owner:          "{{ master_username }}"
