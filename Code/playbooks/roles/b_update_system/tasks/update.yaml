@@ -13,8 +13,8 @@
       "2              : {{ ansible_facts.distribution }}.yaml"
       "3     OS Family: {{ ansible_facts.os_family }}_{{ ansible_facts.distribution_major_version }}.yaml"
       "4              : {{ ansible_facts.os_family }}.yaml"
-      "5 Dist  {{ansible_distribution}}"
-      "6 OsFam  {{ansible_os_family}}"
+      "5 Dist  {{ ansible_distribution }}"
+      "6 OsFam  {{ ansible_os_family }}"
 
 
 # Load a variable file based on the OS type, or a default if not found. Using free-form to specify the file.
@@ -23,8 +23,8 @@
   vars:
     params:
       files:
-        - '{{ansible_distribution}}.yaml'
-        - '{{ansible_os_family}}.yaml'
+        - '{{ ansible_distribution }}.yaml'
+        - '{{ ansible_os_family }}.yaml'
         - default.yaml
       paths:
         - 'vars'
@@ -43,9 +43,9 @@
 - name: Task-04(Update) - Update and upgrade packages.
   ignore_errors: true # Ignore errors if internet is down
   ansible.builtin.package:
-      upgrade: 'yes'
-      update_cache: 'yes'
-      cache_valid_time: 3600
+      upgrade: true
+      update_cache: true
+      cache_valid_time: 86400 # One day
 
 ## sudo apt install python-pip python-dev python-setuptools python-virtualenv git libyaml-dev build-essential
 - name: Task-05(Update) - Install needed apt packages.
